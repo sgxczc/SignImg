@@ -12,6 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.e("ADAC","测试add");
+        Log.e("ADAC","测试adda");
     }
 }
