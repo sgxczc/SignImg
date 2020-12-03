@@ -26,6 +26,7 @@ public class SignUtils {
         this.context = context;
     }
 
+    /*正常图片签名*/
     public boolean addJpgSignatureToGallery(Bitmap signature) {
         boolean result = false;
         try {
@@ -39,8 +40,9 @@ public class SignUtils {
         return result;
     }
 
+
     public File getAlbumStorageDir(String albumName) {
-        // Get the directory for the user's public pictures directory.
+        // 获取用户的公共图片目录的目录
         File file = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), albumName);
         if (!file.mkdirs()) {
@@ -49,6 +51,7 @@ public class SignUtils {
         return file;
     }
 
+    /*扫描指定目录*/
     private void scanMediaFile(File photo) {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         Uri contentUri = Uri.fromFile(photo);
@@ -56,6 +59,7 @@ public class SignUtils {
         context.sendBroadcast(mediaScanIntent);
     }
 
+    /*保存图片*/
     public void saveBitmapToJPG(Bitmap bitmap, File photo) throws IOException {
         Bitmap newBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(newBitmap);
@@ -66,6 +70,7 @@ public class SignUtils {
         stream.close();
     }
 
+    /*SVG签名*/
     public boolean addSvgSignatureToGallery(String signatureSvg) {
         boolean result = false;
         try {
