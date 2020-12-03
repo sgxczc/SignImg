@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.github.gcacace.signaturepad.views.SignaturePad;
+import com.zzc.utils.BitmapUtils;
 import com.zzc.utils.SignUtils;
 
 import java.io.File;
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
+                String imgData = BitmapUtils.bitmapToString(signatureBitmap);
+
                 if (signUtils.addJpgSignatureToGallery(signatureBitmap)) {
                     Toast.makeText(MainActivity.this, "签名保存到图库中", Toast.LENGTH_SHORT).show();
                 } else {
