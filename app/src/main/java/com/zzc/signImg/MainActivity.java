@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -64,10 +65,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
+                Bitmap bitmap = BitmapUtils.compressImage(signatureBitmap);
+
                 String imgData = BitmapUtils.bitmapToString(signatureBitmap);
 
-                if (signUtils.addJpgSignatureToGallery(signatureBitmap)) {
+                if (signUtils.addJpgSignatureToGallery(bitmap)) {
                     Toast.makeText(MainActivity.this, "签名保存到图库中", Toast.LENGTH_SHORT).show();
+                    finish();
+                    Intent intent = new Intent(MainActivity.this,TestActivity.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "无法存储签名", Toast.LENGTH_SHORT).show();
                 }
