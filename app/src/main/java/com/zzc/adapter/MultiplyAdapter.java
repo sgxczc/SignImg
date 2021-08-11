@@ -1,6 +1,5 @@
 package com.zzc.adapter;
 
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
