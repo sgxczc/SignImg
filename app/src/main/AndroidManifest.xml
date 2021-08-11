@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GridviewActivity"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".TestActivity">
+        <activity android:name=".Multiplyctivity"/>
+        <activity android:name=".InspectionListActivity" />
+        <activity android:name=".GridviewActivity" />
+        <activity android:name=".SignActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

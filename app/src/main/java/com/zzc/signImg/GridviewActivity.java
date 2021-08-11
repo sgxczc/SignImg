@@ -40,7 +40,7 @@ public class GridviewActivity extends AppCompatActivity {
     private void getDate() {
         list = new ArrayList<>();
         for (int i = 0; i < content.length; i++) {
-            WorkGirdBean workGirdBean = new WorkGirdBean();
+            WorkGirdBean workGirdBean = new WorkGirdBean(0);
             workGirdBean.setOrderType(content[i]);
             list.add(workGirdBean);
         }

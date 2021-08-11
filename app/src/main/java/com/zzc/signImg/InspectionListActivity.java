@@ -8,13 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.zzc.adapter.InspectionListAdapter;
 
 import org.greenrobot.eventbus.EventBus;
@@ -22,7 +19,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestActivity extends AppCompatActivity {
+public class InspectionListActivity extends AppCompatActivity {
 
     String inspectionTtle[] = {"1、POS机具的数量型号与原登记是否相符", "2、是否妥善保管POS机具", "3、是否有出租、出借、挪用、私自拆卸、改动POS机或程序等情况？"
             , "4、POS设备运转是否良好、线路是否畅通、凭证是否充足？", "5、联机交易测试情况"};
@@ -34,7 +31,7 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_inspection);
 
         TextView textView = findViewById(R.id.test);
         recyclerView = findViewById(R.id.recyclerView);
@@ -56,7 +53,7 @@ public class TestActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TestActivity.this,GridviewActivity.class);
+                Intent intent = new Intent(InspectionListActivity.this,GridviewActivity.class);
                 startActivity(intent);
             }
         });
@@ -65,7 +62,7 @@ public class TestActivity extends AppCompatActivity {
     private void getData() {
         list = new ArrayList<>();
         for (int i = 0; i < inspectionTtle.length; i++) {
-            WorkGirdBean workGirdBean = new WorkGirdBean();
+            WorkGirdBean workGirdBean = new WorkGirdBean(0);
             workGirdBean.setOrderType(inspectionTtle[i]);
             workGirdBean.setCheck(check[i]);
             list.add(workGirdBean);
